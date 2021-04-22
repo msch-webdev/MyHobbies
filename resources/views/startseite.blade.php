@@ -11,6 +11,7 @@
 
                 <div class="card-body">
                     Willkommen {{ auth()->user()->name ?? '' }} bei MyHobbies!
+                    <span class="btn btn-primary"><i class="fas fa-plus"></i> Hey Hey</span>
                 </div>
             </div>
         </div>
