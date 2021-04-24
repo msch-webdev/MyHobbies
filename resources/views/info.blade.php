@@ -8,7 +8,7 @@
                 <div class="card-header">Information</div>
 
                 <div class="card-body">
-                    Info über MYHobbies
+                    Info über MyHobbies
                 </div>
             </div>
         </div>
