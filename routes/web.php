@@ -21,6 +21,8 @@ Route::get('/info', function() {
     return view('info');
 });
 
+//zeigt auf den HobbyController
+Route::resource('hobby', 'HobbyController');
 
 
 Auth::routes();
