@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Neues Tag</div>
+                <div class="card-header">Neuen Tag anlegen</div>
 
                 <div class="card-body">
                     
@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label for="style">Style</label>
 
-                            <input type="text" class="form-control {{ $errors->has('style') ? 'border-danger' : ''}}" id="style" name="style" value="{{ old('style') ?? $tag->style }}">
+                            <input type="text" class="form-control {{ $errors->has('style') ? 'border-danger' : ''}}" id="style" name="style" value="{{ old('style')}}">
                             <small class="form-text text-danger">{!! $errors->first('style') !!}</small>
                         </div>
                         
