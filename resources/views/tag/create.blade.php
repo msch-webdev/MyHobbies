@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Neues Hobby</div>
+                <div class="card-header">Neues Tag</div>
 
                 <div class="card-body">
                     
@@ -18,9 +18,9 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="beschreibung">Beschreibung</label>
-                            <textarea name="beschreibung" id="beschreibung" rows="5" class="form-control {{ $errors->has('name') ? 'border-danger' : ''}}">{{ old('beschreibung') }}</textarea>
-                            <small class="form-text text-danger">{!! $errors->first('beschreibung') !!}</small>
+                            <label for="beschreibung">Style</label>
+                            <textarea name="beschreibung" id="beschreibung" rows="5" class="form-control {{ $errors->has('name') ? 'border-danger' : ''}}">{{ old('style') }}</textarea>
+                            <small class="form-text text-danger">{!! $errors->first('style') !!}</small>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="absenden">
