@@ -5,30 +5,31 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Hobby bearbeiten</div>
+                <div class="card-header">Tag bearbeiten</div>
 
                 <div class="card-body">
                     
-                    <form action="/hobby/{{ $hobby->id }}" method="post">
+                    <form action="/tag/{{ $tag->id }}" method="post">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : ''}}" id="name" name="name" value="{{ old('name') ?? $hobby->name }}">
+                            <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : ''}}" id="name" name="name" value="{{ old('name') ?? $tag->name }}">
                             <small class="form-text text-danger">{!! $errors->first('name') !!}</small>
                         </div>
                         
                         <div class="form-group">
-                            <label for="beschreibung">Beschreibung</label>
-                            <textarea name="beschreibung" id="beschreibung" rows="5" class="form-control {{ $errors->has('name') ? 'border-danger' : ''}}">{{ old('beschreibung') ?? $hobby->beschreibung }}</textarea>
-                            <small class="form-text text-danger">{!! $errors->first('beschreibung') !!}</small>
+                            <label for="style">Style</label>
+
+                            <input type="text" class="form-control {{ $errors->has('style') ? 'border-danger' : ''}}" id="style" name="style" value="{{ old('style') ?? $tag->style }}">
+                            <small class="form-text text-danger">{!! $errors->first('style') !!}</small>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="absenden">
                     </form>
 
 
-                    <a class="btn btn-primary btn-sm mt-3 float-right" href="/hobby"> <i class="fas fa-arrow-circle-up"></i>Zurück</a>
+                    <a class="btn btn-primary btn-sm mt-3 float-right" href="/tag"> <i class="fas fa-arrow-circle-up"></i>Zurück</a>
                 </div>
             </div>
         </div>
