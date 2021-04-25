@@ -21,10 +21,13 @@ Route::get('/info', function() {
     return view('info');
 });
 
-//zeigt auf den HobbyController
-Route::resource('hobby', 'HobbyController');
-
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//zeigt auf den HobbyController
+Route::resource('hobby', 'HobbyController');
+
+//zeigt auf den TagController
+Route::resource('tag', 'TagController');
