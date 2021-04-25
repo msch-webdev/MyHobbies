@@ -50,7 +50,12 @@ class HobbyController extends Controller
             ]
         );
         $hobby->save();
-        return redirect('/hobby');
+        // return redirect('/hobby');
+        //Beim redirect würde die 2. information im with verloren gehen 
+        //Bei $this wird die index inkl. der with aufgerufen
+        return $this->index()->with([
+            'meldung_success' => 'Das Hobby <b>' . $hobby->name . '</b> wurde angelegt.'
+        ]);
     }
 
     /**
