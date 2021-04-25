@@ -17,7 +17,6 @@ class CreateHobbiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('beschreibung');
-            // $table->text('beschreibung')->nullable(); wenn null erlaubt
             $table->timestamps();
         });
     }
