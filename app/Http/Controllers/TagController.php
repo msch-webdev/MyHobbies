@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('tag.index')->with('tags', $tags);
     }
 
     /**
@@ -24,7 +25,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tag.create');
     }
 
     /**
@@ -35,18 +36,23 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate(
+            [
+                'name' => 'required | min:3',
+                'style' => 'required'
+            ]
+        );
+        $tag = new Tag(
+            [
+                'name' => $request->name,
+                'style' => $request->style,
+            ]
+        );
+        $tag->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tag $tag)
-    {
-        //
+        return $this->index()->with([
+            'meldung_success' => 'Der Tag <b>' . $tag->name . '</b> wurde angelegt.'
+        ]);
     }
 
     /**
@@ -57,7 +63,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('tag.edit')->with('tag', $tag);
     }
 
     /**
@@ -69,7 +75,20 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required | min:3',
+                'style' => 'required'
+            ]
+        );
+        $tag->update([
+            'name' => $request->name,
+            'style' => $request->style
+        ]);
+        
+        return $this->index()->with([
+            'meldung_success' => 'Der Tag <b>' . $request->name . '</b> wurde bearbeitet.'
+        ]);
     }
 
     /**
@@ -80,6 +99,12 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $old_name = $tag->name;
+
+        $tag->delete();
+
+        return $this->index()->with([
+            'meldung_success' => 'Der Tag <b>' . $old_name . '</b> wurde gelöscht.'
+        ]);
     }
 }
